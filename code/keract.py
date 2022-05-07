@@ -224,58 +224,6 @@ def _get_nodes(module, nodes, output_format, nested=False, layer_names=None, dep
             _get_nodes(layer, nodes, output_format, nested, layer_names, depth + 1)
 
 
-# def _get_nodes(module, output_format, nested=False, layer_names=[]):
-#     return {o.name: o.output for o in module._layers}
-#     has_layers = hasattr(module, '_layers') and bool(module._layers)
-#     assert isinstance(module, Model) or isinstance(module, Layer), 'Not a model or layer!'
-#
-#     def output(u):
-#         try:
-#             return u.output
-#         except AttributeError:  # for example Sequential. After tf2.3.
-#             return u.outbound_nodes[0].outputs
-#
-#     try:
-#         module_name = n_(module.output, output_format_=output_format, nested=nested)
-#     except AttributeError:  # for example Sequential. After tf2.3.
-#         module_name = module.name
-#
-#     if has_layers:
-#         node_dict = OrderedDict()
-#         for m in module._layers:
-#             try:
-#                 if isinstance(m, dict) and len(m) == 0:
-#                     continue
-#                 key = n_(m.output, output_format_=output_format, nested=nested)
-#             except AttributeError:  # for example Sequential. After tf2.3.
-#                 try:
-#                     key = m.name
-#                 except AttributeError:
-#                     continue
-#             if nested:
-#                 nodes = _get_nodes(m, output_format, nested, layer_names)
-#             else:
-#                 if bool(layer_names) and key in layer_names:
-#                     nodes = OrderedDict([(key, output(m))])
-#                 elif not bool(layer_names):
-#                     nodes = OrderedDict([(key, output(m))])
-#                 else:
-#                     nodes = OrderedDict()
-#             node_dict.update(nodes)
-#         return node_dict
-#
-#     elif bool(layer_names) and module_name in layer_names:
-#         # print("1", module_name, module)
-#         return OrderedDict({module_name: module.output})
-#
-#     elif not bool(layer_names):
-#         # print("2", module_name, module)
-#         return OrderedDict({module_name: module.output})
-#
-#     else:
-#         # print("3", module_name, module)
-#         return OrderedDict()
-
 
 def get_activations(model, x, layer_names=None, nodes_to_evaluate=None,
                     output_format='simple', nested=False, auto_compile=True):
