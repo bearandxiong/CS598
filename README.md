@@ -13,7 +13,9 @@ Also need keract, whose source code can be found here: https://github.com/philip
 
 #### 2. Data pre-processing code
 Code name: getRawData.py
+
 Main function name: getRawData()
+
 Usage: read in raw text MIMIC data and parse the text data into pandas, save in excel file.
 
 Code name: preProcessing.py
