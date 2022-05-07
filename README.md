@@ -12,39 +12,37 @@ Also need keract, whose source code can be found here: https://github.com/philip
 
 
 #### 2. Data pre-processing code
-Code name: getRawData.py
-
-Main function name: getRawData()
-
+Code name: getRawData.py;
+Main function name: getRawData();
 Usage: read in raw text MIMIC data and parse the text data into pandas, save in excel file.
 
-Code name: preProcessing.py
-Main function name: preProcessing()
+Code name: preProcessing.py;
+Main function name: preProcessing();
 Usage: convert the text file into sparse numerical representation, output model ready data.
 
 
 #### 3. Training code
-Code name: trainAutoEncoder.py
+Code name: trainAutoEncoder.py;
 Usage: train auto encoder to extract condense information from text input.
 
-Code name: loadTrainingData.py
+Code name: loadTrainingData.py;
 Usage: load training data generator.
 
-Code name: model.py
-Main class: myModel
+Code name: model.py;
+Main class: myModel;
 Usage: building the model infractructure
 
-Code name: trainModel.py
+Code name: trainModel.py;
 Usage: training the main model, and generated synthetic text, save to an excel file.
 
 
 
 #### 4. Evaluation code
 
-Code name: evaluateModel.py
+Code name: evaluateModel.py;
 Usage: use the pre-trained model, calculate ppv, sens, f1, CIDEr, ES scores for various sampling approaches.
 
-Code name: classification.py
+Code name: classification.py;
 Usage: train the cnn model as a classifier, to classify ICD code based on chief complaints and other variables (gender, age etc.)
 
 #### 5. Pre-trained models
